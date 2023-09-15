@@ -1,5 +1,6 @@
-import Column from '../Column/Column';
+import Column from '../Column/Column.js';
 import styles from './List.module.scss';
+import ColumnForm from '../ColumnForm/ColumnForm.js';
 import { useState } from 'react';
 import shortid from 'shortid';
 
@@ -10,12 +11,8 @@ const List = () => {
     { id: 3, title: 'Games', icon: 'gamepad' },
   ]);
 
-  const [value, setValue] = useState('');
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    setColumns([...columns, { id: shortid(), title: value }]);
-    setValue('');
+  const addColumn = newColumn => {
+    setColumns([...columns, { id: shortid(), title: newColumn.title }]);
   };
 
   return (
@@ -32,10 +29,7 @@ const List = () => {
         ))}
         ;
       </section>
-      <form onSubmit={handleSubmit}>
-        <input type='text' value={value} onChange={e => setValue(e.target.value)} />
-        <button>Add column</button>
-      </form>
+      <ColumnForm action={addColumn} />
     </div>
   );
 };
