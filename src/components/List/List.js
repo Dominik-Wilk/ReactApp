@@ -61,11 +61,11 @@ const List = () => {
         {columns.map(column => (
           <Column
             key={column.id}
+            id={column.id}
             title={column.title}
             icon={column.icon}
             cards={column.cards}
             action={addCard}
-            id={column.id}
           />
         ))}
       </section>
