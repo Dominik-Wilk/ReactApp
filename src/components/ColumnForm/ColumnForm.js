@@ -13,7 +13,7 @@ const ColumnForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch({ type: 'ADD_COLUMN', newColumn: { id: nanoid(), title, icon } });
+    dispatch({ type: 'ADD_COLUMN', payload: { id: nanoid(), title, icon } });
     setTitle('');
     setIcon('');
   };
