@@ -2,14 +2,18 @@ import styles from './ColumnForm.module.scss';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 
-const ColumnForm = props => {
+const ColumnForm = () => {
   const [title, setTitle] = useState('');
   const [icon, setIcon] = useState('');
 
+  const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
-    props.action({ title: title, icon: icon });
+    dispatch({ type: 'ADD_COLUMN', newColumn: { id: nanoid(), title, icon } });
     setTitle('');
     setIcon('');
   };
