@@ -3,7 +3,11 @@ import initialState from './initialState';
 
 const reducer = (state, action) => {
   if (action.type === 'ADD_COLUMN') return { ...state, columns: [...state.columns, action.payload] };
+
   if (action.type === 'ADD_CARD') return { ...state, cards: [...state.cards, action.payload] };
+
+  if (action.type === 'UPDATE_SEARCHSTRING') return { ...state, searchString: action.payload };
+
   return state;
 };
 
