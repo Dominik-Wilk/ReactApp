@@ -1,13 +1,20 @@
 import { createStore } from 'redux';
 import initialState from './initialState';
+import strContains from '../utils/strContains';
+import { nanoid } from 'nanoid';
+
+export const getFilteredCards = ({ cards, searchString }, columnId) =>
+  cards.filter(card => card.columnId === columnId && strContains(card.title, searchString));
+
+export const getAllColumns = state => state.columns;
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_COLUMN':
-      return { ...state, columns: [...state.columns, action.payload] };
+      return { ...state, columns: [...state.columns, { ...action.payload, id: nanoid() }] };
 
     case 'ADD_CARD':
-      return { ...state, cards: [...state.cards, action.payload] };
+      return { ...state, cards: [...state.cards, { ...action.payload, id: nanoid() }] };
 
     case 'UPDATE_SEARCHSTRING':
       return { ...state, searchString: action.payload };
