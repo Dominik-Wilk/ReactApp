@@ -17,7 +17,11 @@ const CardForm = ({ columnId }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextInput id='title' value={title} onChange={e => setTitle(e.target.value)} />
+      <TextInput
+        id='title'
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+      />
       <Button>Add card</Button>
     </form>
   );

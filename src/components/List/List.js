@@ -14,7 +14,9 @@ const List = () => {
           Things to do<span>soon</span>
         </h2>
       </header>
-      <p className={styles.description}>Intresting things I want to check out</p>
+      <p className={styles.description}>
+        Intresting things I want to check out
+      </p>
       <section className={styles.columns}>
         {columns.map(column => (
           <Column key={column.id} {...column} />

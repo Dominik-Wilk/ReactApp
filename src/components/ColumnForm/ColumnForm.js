@@ -23,11 +23,19 @@ const ColumnForm = () => {
       <label className={styles.name} htmlFor='title'>
         Title:
       </label>
-      <TextInput id='title' value={title} onChange={e => setTitle(e.target.value)} />
+      <TextInput
+        id='title'
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+      />
       <label className={styles.name} htmlFor='icon'>
         Icon:
       </label>
-      <TextInput id='icon' value={icon} onChange={e => setIcon(e.target.value)} />
+      <TextInput
+        id='icon'
+        value={icon}
+        onChange={e => setIcon(e.target.value)}
+      />
       <Button>Add column</Button>
     </form>
   );
