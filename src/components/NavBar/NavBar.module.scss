@@ -1,6 +1,7 @@
+@import '../../styles/settings.scss';
+
 .nav {
   display: flex;
-  padding: 0 10px;
   justify-content: space-between;
   background-color: black;
 }
@@ -17,12 +18,15 @@ a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 22px;
-  padding: 10px 20px;
+  font-size: 20px;
+  padding: 10px;
 }
 .logo {
   margin: auto 0;
   i {
     font-size: 30px;
   }
+}
+.linkActive {
+  color: $color-warning;
 }
