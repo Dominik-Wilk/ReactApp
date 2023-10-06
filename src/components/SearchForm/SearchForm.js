@@ -2,13 +2,19 @@ import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput.js';
 import Button from '../Button/Button.js';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { searchPhrase } from '../../redux/store';
+import { useLocation } from 'react-router-dom';
 
 const SearchForm = () => {
   const [searchString, setSearchString] = useState('');
-
   const dispatch = useDispatch();
+
+  const location = useLocation();
+  useEffect(() => {
+    dispatch(searchPhrase(searchString));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   const handleInputChange = e => {
     setSearchString(e.target.value);
