@@ -2,11 +2,11 @@ import PageTitle from '../PageTitle/PageTitle';
 import Card from '../Card/Card';
 import styles from './Favourite.module.scss';
 import { useSelector } from 'react-redux';
-import { getFavCards } from '../../redux/store';
+import { getFavCards } from '../../redux/cardsRedux';
 
 const Favourite = () => {
   const cards = useSelector(getFavCards);
-
+  console.log(cards);
   if (cards.length === 0) {
     return (
       <>
@@ -21,7 +21,12 @@ const Favourite = () => {
         <article className={styles.column}>
           <ul className={styles.cards}>
             {cards.map(card => (
-              <Card key={card.id} title={card.title} id={card.id} />
+              <Card
+                key={card.id}
+                title={card.title}
+                id={card.id}
+                isFav={true}
+              />
             ))}
           </ul>
         </article>
