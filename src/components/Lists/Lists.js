@@ -6,10 +6,10 @@ import ListsForm from '../ListsForm/ListsForm';
 
 const Lists = () => {
   const lists = useSelector(getAllLists);
-
+  console.log(lists);
   return (
     <section className={styles.lists}>
-      <h2 className={styles.heading}>Browse lists</h2>
+      <h2 className={styles.heading}>Browse lists:</h2>
       {lists.map(list => (
         <Link key={list.id} to={`/list/${list.id}`} className={styles.listLink}>
           <h3>{list.title}</h3>

@@ -21,7 +21,7 @@ const Favourite = () => {
         <article className={styles.column}>
           <ul className={styles.cards}>
             {cards.map(card => (
-              <Card {...card} />
+              <Card key={card.id} {...card} />
             ))}
           </ul>
         </article>
