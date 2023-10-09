@@ -1,11 +1,26 @@
 import { nanoid } from 'nanoid';
+import { createSelector } from 'reselect';
 
 const ADD_COLUMN = 'app/columns/ADD_COLUMN';
 
-export const getAllColumns = state => state.columns;
-export const getColumnsByList = ({ columns }, listId) => {
-  return columns.filter(column => column.listId === listId);
-};
+const selectColumns = state => state.columns;
+const selectListId = (state, listId) => listId;
+
+// export const getAllColumns = state => state.columns;
+
+// export const getColumnsByList = ({ columns }, listId) => {
+//   return columns.filter(column => column.listId === listId);
+// };
+
+export const getAllColumns = createSelector(
+  [selectColumns],
+  columns => columns
+);
+
+export const getColumnsByList = createSelector(
+  [selectColumns, selectListId],
+  (columns, listId) => columns.filter(column => column.listId === listId)
+);
 
 export const addColumn = payload => ({ type: ADD_COLUMN, payload });
 

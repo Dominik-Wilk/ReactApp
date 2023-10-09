@@ -6,7 +6,7 @@ import ListsForm from '../ListsForm/ListsForm';
 
 const Lists = () => {
   const lists = useSelector(getAllLists);
-  console.log(lists);
+  // console.log(lists);
   return (
     <section className={styles.lists}>
       <h2 className={styles.heading}>Browse lists:</h2>

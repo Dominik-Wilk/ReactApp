@@ -6,7 +6,7 @@ import { getFilteredCards } from '../../redux/searchStringRedux';
 
 const Column = props => {
   const cards = useSelector(state => getFilteredCards(state, props.id));
-  console.log(cards);
+  // console.log(cards);
   return (
     <article className={styles.column}>
       <h2 className={styles.title}>

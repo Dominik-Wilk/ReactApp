@@ -1,11 +1,18 @@
 import { nanoid } from 'nanoid';
+import { createSelector } from 'reselect';
 
 const ADD_CARD = 'app/cards/ADD_CARD';
 const REMOVE_CARD = 'app/cards/REMOVE_CARD';
 const TOGGLE_CARD_FAVOURITE = 'app/cards/TOGGLE_CARD_FAVOURITE';
 
-export const getFavCards = state =>
-  state.cards.filter(card => card.isFavourite);
+// export const getFavCards = state =>
+//   state.cards.filter(card => card.isFavourite);
+
+const selectCards = state => state.cards;
+
+export const getFavCards = createSelector([selectCards], cards =>
+  cards.filter(card => card.isFavourite)
+);
 
 export const toggleCardFav = payload => ({
   type: TOGGLE_CARD_FAVOURITE,

@@ -1,17 +1,36 @@
+import { createSelector } from 'reselect';
 import strContains from '../utils/strContains';
 
 const UPDATE_SEARCHSTRING = 'app/cards/UPDATE_SEARCHSTRING';
 
-export const stateString = state => state.searchString;
+const selectString = state => state.searchString;
+const selectCards = state => state.cards;
+const selectColumnId = (state, columnId) => columnId;
+
+// export const stateString = state => state.searchString;
+
+export const stateString = createSelector(
+  [selectString],
+  searchString => searchString
+);
+
+export const getFilteredCards = createSelector(
+  [selectCards, selectString, selectColumnId],
+  (cards, searchString, columnId) =>
+    cards.filter(
+      card =>
+        card.columnId === columnId && strContains(card.title, searchString)
+    )
+);
+// export const getFilteredCards = ({ cards, searchString }, columnId) =>
+//   cards.filter(
+//     card => card.columnId === columnId && strContains(card.title, searchString)
+//   );
 
 export const searchPhrase = payload => ({
   type: UPDATE_SEARCHSTRING,
   payload,
 });
-export const getFilteredCards = ({ cards, searchString }, columnId) =>
-  cards.filter(
-    card => card.columnId === columnId && strContains(card.title, searchString)
-  );
 
 const searchStringReducer = (statePart = '', action) => {
   switch (action.type) {

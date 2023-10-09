@@ -9,8 +9,8 @@ import { useLocation } from 'react-router-dom';
 const SearchForm = () => {
   const [searchString, setSearchString] = useState('');
   const dispatch = useDispatch();
-
   const location = useLocation();
+
   useEffect(() => {
     dispatch(searchPhrase(searchString));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -23,7 +23,7 @@ const SearchForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(searchPhrase(searchString));
-    setSearchString('');
+    // setSearchString('');
   };
 
   return (
