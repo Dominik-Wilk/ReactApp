@@ -23,7 +23,6 @@ const SearchForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(searchPhrase(searchString));
-    // setSearchString('');
   };
 
   return (

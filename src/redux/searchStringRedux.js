@@ -7,8 +7,6 @@ const selectString = state => state.searchString;
 const selectCards = state => state.cards;
 const selectColumnId = (state, columnId) => columnId;
 
-// export const stateString = state => state.searchString;
-
 export const stateString = createSelector(
   [selectString],
   searchString => searchString
@@ -22,10 +20,6 @@ export const getFilteredCards = createSelector(
         card.columnId === columnId && strContains(card.title, searchString)
     )
 );
-// export const getFilteredCards = ({ cards, searchString }, columnId) =>
-//   cards.filter(
-//     card => card.columnId === columnId && strContains(card.title, searchString)
-//   );
 
 export const searchPhrase = payload => ({
   type: UPDATE_SEARCHSTRING,

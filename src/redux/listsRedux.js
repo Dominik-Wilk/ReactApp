@@ -11,11 +11,6 @@ export const getListById = createSelector(
   [selectLists, selectListId],
   (lists, listId) => lists.find(list => list.id === listId)
 );
-// export const getAllLists = state => state.lists;
-
-// export const getListById = ({ lists }, listId) => {
-//   return lists.find(list => list.id === listId);
-// };
 
 export const addList = payload => ({ type: ADD_LIST, payload });
 

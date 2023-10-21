@@ -6,12 +6,6 @@ const ADD_COLUMN = 'app/columns/ADD_COLUMN';
 const selectColumns = state => state.columns;
 const selectListId = (state, listId) => listId;
 
-// export const getAllColumns = state => state.columns;
-
-// export const getColumnsByList = ({ columns }, listId) => {
-//   return columns.filter(column => column.listId === listId);
-// };
-
 export const getAllColumns = createSelector(
   [selectColumns],
   columns => columns
